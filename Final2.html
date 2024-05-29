@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-image: url('https://forkast.news/wp-content/uploads/2022/09/bitcoin-cryptocurrency-gold-coin-trading-on-the-c-2021-10-14-19-24-29-utc-768x512.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+        h1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .loading-container {
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .loading-bar {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .loading-bar div {
+            height: 30px;
+            width: 0;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+        #message {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Votre Enregistrement est en Cours de Traitement!</h1>
+    <div class="loading-container">
+        <div class="loading-bar">
+            <div id="loading-progress">0%</div>
+        </div>
+    </div>
+    <div id="message">
+        Veuillez nous recontacter sur WhatsApp afin que nous vous communiquions le numéro sur lequel vous devez effectuer le transfert de votre investissement.
+    </div>
+
+    <script>
+        function animateLoading() {
+            let progress = 0;
+            const loadingProgress = document.getElementById('loading-progress');
+            const message = document.getElementById('message');
+            const interval = setInterval(() => {
+                if (progress < 70) {
+                    progress++;
+                    loadingProgress.style.width = progress + '%';
+                    loadingProgress.textContent = progress + '%';
+                } else {
+                    clearInterval(interval);
+                    message.style.display = 'block';
+                }
+            }, 100);
+        }
+
+        window.onload = animateLoading;
+    </script>
+</body>
+</html>
